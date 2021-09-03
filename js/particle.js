@@ -1,10 +1,12 @@
 function Particle(x, y, firework) {
   this.pos = createVector(x,y);
+  this.firework = firework;
   
-  if (firework) {
+  if (this.firework) {
     this.vel = createVector(0, random(-10,-2));
   } else {
     this.vel = p5.Vector.random2D();
+    this.vel.mult(random(1,6)); // magnitude is gonna be scaled by a random amount
   }
   
   this.acc = createVector(0,0);
