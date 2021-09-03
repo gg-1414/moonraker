@@ -1,4 +1,4 @@
-function Particle(x, y, firework) {
+function Particle(x, y, hu, firework) {
   this.pos = createVector(x,y);
   this.firework = firework;
   this.lifespan = 255;
@@ -36,12 +36,14 @@ function Particle(x, y, firework) {
   }
   
   this.show = function() {
+    colorMode(HSB);
+    
     if (!this.firework) {
       strokeWeight(2);
-      stroke(255, this.lifespan);
+      stroke(hu, 255, 255, this.lifespan);
     } else {
       strokeWeight(4);
-      stroke(255); 
+      stroke(hu, 255, 255); 
     }
     point(this.pos.x, this.pos.y) // draws particle
   }

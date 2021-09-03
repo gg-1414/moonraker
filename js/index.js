@@ -3,15 +3,15 @@ var gravity;
 
 function setup() {
   createCanvas(400, 300);
+  colorMode(HSB);
   gravity = createVector(0,0.2); // gravity points down, so it should be positive.
   stroke(255);
   strokeWeight(4);
-  firework = new Particle(random(width), height);
 }
 
 function draw() {
-  // background(0);
-  background(0, 25); // gives it alpha (opacity) 25/255
+  colorMode(RGB);
+  background(0, 0, 0, 25); // gives it alpha (opacity) 25/255
   
   // 10% chance of making a new firework every frame
   if (random(1) < 0.03) {
@@ -29,4 +29,3 @@ function draw() {
   
   console.log(fireworks.length)
 }
-

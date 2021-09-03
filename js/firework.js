@@ -1,5 +1,6 @@
 function Firework() {
-  this.firework = new Particle(random(width), height, true);
+  this.hu = random(255);
+  this.firework = new Particle(random(width), height, this.hu, true);
   this.exploded = false;
   this.particles = [];
   
@@ -36,7 +37,7 @@ function Firework() {
   
   this.explode = function() {
     for (let i = 0; i < 100; i++) {
-      const p = new Particle(this.firework.pos.x, this.firework.pos.y);
+      const p = new Particle(this.firework.pos.x, this.firework.pos.y, this.hu, false);
       this.particles.push(p);
     }
   }
