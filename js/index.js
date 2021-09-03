@@ -11,7 +11,12 @@ function setup() {
 
 function draw() {
   background(51);
-  fireworks.push(new Firework());
+
+  // 10% chance of making a new firework every frame
+  if (random(1) < 0.1) {
+    fireworks.push(new Firework());
+  }
+
   for (var i = 0; i < fireworks.length; i++) {
     fireworks[i].update();
     fireworks[i].show();
