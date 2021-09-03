@@ -16,6 +16,9 @@ function Particle(x, y, firework) {
   }
   
   this.update = function() {
+    if (!this.firework) {
+      this.vel.mult(0.85);
+    }
     this.vel.add(this.acc);
     this.pos.add(this.vel);
     this.acc.mult(0);
