@@ -3,6 +3,14 @@ function Firework() {
   this.exploded = false;
   this.particles = [];
   
+  this.done = function() {
+    if (this.exploded && this.particles.length === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
   this.update = function() {
     // actions to take only if firework exists (not null)
     if (!this.exploded) {
@@ -16,9 +24,13 @@ function Firework() {
       }
     }
     
-    for (let i = 0; i < this.particles.length; i++) {
+    for (let i = this.particles.length-1; i >= 0; i--) {
       this.particles[i].applyForce(gravity);
       this.particles[i].update();
+      
+      if (this.particles[i].done()) {
+        this.particles.splice(i, 1); // removes last element in array
+      }
     }
   }
   
