@@ -10,7 +10,8 @@ function setup() {
 }
 
 function draw() {
-  background(51);
+  // background(0);
+  background(0, 25); // gives it alpha (opacity) 25/255
   
   // 10% chance of making a new firework every frame
   if (random(1) < 0.03) {
