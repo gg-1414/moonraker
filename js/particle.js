@@ -1,16 +1,16 @@
-function Particle(x,y) {
+function Particle(x, y, firework) {
   this.pos = createVector(x,y);
-  this.vel = createVector(0, random(-10,-2));
+  
+  if (firework) {
+    this.vel = createVector(0, random(-10,-2));
+  } else {
+    this.vel = p5.Vector.random2D();
+  }
+  
   this.acc = createVector(0,0);
   
   this.applyForce = function(force) {
     this.acc.add(force); 
-    /* 
-     * Physics notes:
-     * force = mass * acc
-     * acc = force / mass
-     * (mass elimated for simplicity)
-     */
   }
   
   this.update = function() {
